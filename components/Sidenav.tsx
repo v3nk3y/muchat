@@ -3,7 +3,6 @@ import { sidenavLinks } from "@/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 
 const Sidenav = () => {
   // Get current pathname
