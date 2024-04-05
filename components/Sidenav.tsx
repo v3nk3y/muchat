@@ -12,11 +12,11 @@ const Sidenav = () => {
       className="sticky left-0 top-0 h-screen w-fit flex flex-col justify-between p-6 pt-28 bg-gray-900 text-white
      max-sm:hidden lg:w-[264px]"
     >
-      <div className="flec flex-col flex-1 gap-6">
+      <div className="flex flex-col flex-1 gap-6">
         {sidenavLinks.map((link) => {
           // StartsWith is for additional check in case we have other params in path
           const isActive =
-            pathname === link.route || pathname.startsWith(link.route);
+            pathname === link.route || pathname.startsWith(`${link.route}/`);
           return (
             <Link
               href={link.route}

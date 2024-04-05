@@ -3,7 +3,7 @@ import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   return (
-    <nav className="text-white flex justify-between w-full z-50 bg-gray-900 px-6 py-4 lg:px-10">
+    <nav className="text-white flex justify-between items-center w-full z-50 bg-gray-900 px-6 py-4 lg:px-10">
       <Link href="/" className="flex items-center gap-1">
         {/* #TODO: Temporary until we figure out the Logo */}
         <span>💬</span>
@@ -12,7 +12,7 @@ const Navbar = () => {
         </p>
       </Link>
 
-      <div className="flex justify-between gap-5">
+      <div className="flex justify-between items-center gap-5">
         {/* #TODO: User profile goes in here */}
         <MobileNav />
       </div>
