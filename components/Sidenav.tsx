@@ -26,6 +26,8 @@ const Sidenav = () => {
                 { "bg-blue-500": isActive }
               )}
             >
+              {/* #TODO: Using this until we figure out the images with icons */}
+              <span>{link.tempIcon}</span>
               <p className="text-lg font-semibold max-lg:hidden">
                 {link.label}
               </p>

@@ -1,5 +1,23 @@
+import Link from "next/link";
+import MobileNav from "./MobileNav";
+
 const Navbar = () => {
-  return <div>Navbar</div>;
+  return (
+    <nav className="text-white flex justify-between w-full z-50 bg-gray-900 px-6 py-4 lg:px-10">
+      <Link href="/" className="flex items-center gap-1">
+        {/* #TODO: Temporary until we figure out the Logo */}
+        <span>💬</span>
+        <p className="text-[24px] font-extrabold text-white max-sm:hidden">
+          Muchat
+        </p>
+      </Link>
+
+      <div className="flex justify-between gap-5">
+        {/* #TODO: User profile goes in here */}
+        <MobileNav />
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
