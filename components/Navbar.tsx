@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MobileNav from "./MobileNav";
+import { UserButton, SignedIn } from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
@@ -13,7 +14,9 @@ const Navbar = () => {
       </Link>
 
       <div className="flex justify-between items-center gap-5">
-        {/* #TODO: User profile goes in here */}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
         <MobileNav />
       </div>
     </nav>
