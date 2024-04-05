@@ -17,7 +17,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ClerkProvider>
+      <ClerkProvider
+        appearance={{
+          // layout: {
+          //   logoImageUrl: "#TODO Placehollder For APP Logo Icon (muchat)",
+          //   socialButtonsVariant: "iconButton",
+          // },
+          variables: {
+            colorText: "#fff",
+            colorPrimary: "#3b82f6",
+            colorBackground: "#111827",
+            colorInputText: "#fff",
+          },
+        }}
+      >
         <body className={`${inter.className} bg-gray-950`}>{children}</body>
       </ClerkProvider>
     </html>

@@ -70,7 +70,103 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
+
+/* ==== clerk class styles custom override ===== */
+
+.cl-userButtonPopoverActionButtonIcon {
+  color: white;
+}
+
+.cl-logoBox {
+  height: 40px;
+}
+
+.cl-dividerLine {
+  background: #252a41;
+  height: 2px;
+}
+
+.cl-socialButtonsIconButton {
+  border: 3px solid #565761;
+}
+
+/* Menu Manageaccount signoutlinks */
+.cl-userButtonPopoverActionButton {
+  color: white;
+}
+
+.cl-userButtonPopoverActionButton:hover {
+  background-color: #1f2937;
+  color: #fff;
+}
+
+/* Menu Manageaccount signoutlinks */
+
+/* Profile , Security buttons */
+.cl-navbarButton {
+  color: #fff;
+}
+
+.cl-navbarButton:hover {
+  background-color: #1f2937;
+  color: #fff;
+}
+
+/* Profile , Security buttons */
+
+/* Primary email text */
+.cl-badge {
+  color: #d1d5db;
+}
+
+/* Primary email text */
+
+/* Connected accounts text */
+.cl-menuItem {
+  color: #fff;
+}
+
+.cl-menuItem:hover {
+  background-color: #1f2937;
+  color: #fff;
+}
+
+/* Connected accounts */
+
+/* Upload button - update profile */
+.cl-avatarImageActionsUpload {
+  color: #fff;
+  background-color: #111827;
+}
+
+.cl-avatarImageActionsUpload:hover {
+  color: #fff;
+  background-color: #1f2937;
+}
+
+/* Upload button - update profile */
+
+/* Signin  sign up , social icons */
+.cl-providerIcon__github {
+  filter: invert();
+}
+
+.cl-providerIcon__apple {
+  filter: invert();
+}
+
+/* Signin  sign up , social icons */
+
+/* sign in sign up form inoput bg */
+.cl-formFieldInput {
+  background-color: #252a41;
+}
+
+/* sign in sign up form inoput bg */
+
+/* ==== clerk class styles custom override ===== */
