@@ -53,10 +53,9 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      // #TODO: If Bg image is used placeholder
+      backgroundImage: {
+        // home: "url('/images/home-background.png')",
       },
       keyframes: {
         "accordion-down": {

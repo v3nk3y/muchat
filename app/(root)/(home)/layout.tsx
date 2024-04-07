@@ -8,7 +8,7 @@ const HomeLayout = ({ children }: PropsWithChildren) => {
       <Navbar />
       <div className="flex">
         <Sidenav />
-        <section className="flex flex-col flex-1 min-h-screen px-6 pb-6 pt-28 max-md:pb-14 sm:px-14">
+        <section className="flex flex-col flex-1 min-h-screen pt-8 px-6 pb-6 max-md:pb-14 sm:pt-14 sm:px-14">
           <div className="w-full">{children}</div>
         </section>
       </div>
