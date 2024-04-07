@@ -1,3 +1,5 @@
+import MeetingTypeCategory from "@/components/MeetingTypeCategory";
+
 const Home = () => {
   const now = new Date();
   const time = now.toLocaleTimeString("en-US", {
@@ -23,6 +25,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <MeetingTypeCategory />
     </section>
   );
 };
