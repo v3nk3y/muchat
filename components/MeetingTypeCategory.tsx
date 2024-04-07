@@ -3,12 +3,16 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import HomeCard from "./HomeCard";
+import MeetingModal from "./MeetingModal";
 
 const MeetingTypeCategory = () => {
   const [meetingState, setMeetingState] = useState<
     "scheduleMeeting" | "joinMeeting" | "instantMeeting" | undefined
   >();
   const router = useRouter();
+
+  // For handling new meeting click
+  const createMeeting = () => {};
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
       {/* #TODO: Replace card icon images */}
@@ -39,6 +43,15 @@ const MeetingTypeCategory = () => {
         image="/images/next.svg"
         handleClick={() => router.push("/recordings")}
         className="bg-slate-800"
+      />
+      <MeetingModal
+        isOpen={meetingState === "instantMeeting"}
+        onClose={() => setMeetingState(undefined)}
+        title="Let's Catch Up Right Now!"
+        className="text-center"
+        buttonText="Start Meeting"
+        buttonIcon=""
+        handleClick={createMeeting}
       />
     </section>
   );
