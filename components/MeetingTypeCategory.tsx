@@ -1,11 +1,12 @@
 "use client";
 
+import { useToast } from "@/components/ui/use-toast";
+import { useUser } from "@clerk/nextjs";
+import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import HomeCard from "./HomeCard";
 import MeetingModal from "./MeetingModal";
-import { useUser } from "@clerk/nextjs";
-import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 
 const MeetingTypeCategory = () => {
   const [meetingState, setMeetingState] = useState<
@@ -28,12 +29,21 @@ const MeetingTypeCategory = () => {
   // For tracking call details
   const [callDetails, setCallDetails] = useState<Call>();
 
+  // Handling toast notification
+  const { toast } = useToast();
+
   // For handling new meeting click
   const createMeeting = async () => {
     // if no user or client available then exit
     if (!client || !user) return;
 
     try {
+      if (!values.dateTime) {
+        toast({
+          title: "Please select a date an time",
+        });
+        return;
+      }
       // Create a random id for the call
       const id = crypto.randomUUID();
       // Refer Creating a call stream docs: https://getstream.io/video/docs/api/
@@ -63,8 +73,15 @@ const MeetingTypeCategory = () => {
         // Route to meeting room
         router.push(`/meeting/${call?.id}`);
       }
+
+      toast({
+        title: "Meeting created, Lets catch up!",
+      });
     } catch (error) {
       console.log(error);
+      toast({
+        title: "Oops, Failed to create meeting!",
+      });
     }
   };
   return (
