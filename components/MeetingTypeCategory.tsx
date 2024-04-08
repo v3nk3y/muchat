@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import HomeCard from "./HomeCard";
 import MeetingModal from "./MeetingModal";
+import { useUser } from "@clerk/nextjs";
+import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 
 const MeetingTypeCategory = () => {
   const [meetingState, setMeetingState] = useState<
@@ -11,8 +13,60 @@ const MeetingTypeCategory = () => {
   >();
   const router = useRouter();
 
+  // Get logged in user
+  const { user } = useUser();
+  // Get stream video client
+  const client = useStreamVideoClient();
+
+  // For tracking meeting call start time
+  const [values, setValues] = useState({
+    dateTime: new Date(),
+    description: "",
+    meetingLink: "",
+  });
+
+  // For tracking call details
+  const [callDetails, setCallDetails] = useState<Call>();
+
   // For handling new meeting click
-  const createMeeting = () => {};
+  const createMeeting = async () => {
+    // if no user or client available then exit
+    if (!client || !user) return;
+
+    try {
+      // Create a random id for the call
+      const id = crypto.randomUUID();
+      // Refer Creating a call stream docs: https://getstream.io/video/docs/api/
+      const call = client.call("default", id);
+
+      // If some stream call error then throw error
+      if (!call)
+        throw new Error("Oops something went wrong! Failed to create call.");
+
+      //If call created then get time of meeting started at
+      const startsAt =
+        values.dateTime.toISOString() || new Date(Date.now()).toISOString();
+      const description = values.description || "Instant Meeting";
+
+      // Create call with data
+      await call.getOrCreate({
+        data: {
+          starts_at: startsAt,
+          custom: {
+            description,
+          },
+        },
+      });
+      setCallDetails(call);
+
+      if (!values.description) {
+        // Route to meeting room
+        router.push(`/meeting/${call?.id}`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
       {/* #TODO: Replace card icon images */}
