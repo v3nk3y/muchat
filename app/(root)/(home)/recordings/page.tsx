@@ -1,4 +1,11 @@
 import CallList from "@/components/CallList";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Muchat - Recordings",
+  description:
+    "Review Recordings - Seamlessly share recorded meetings with team members, annotate key points, and collaborate effectively on past sessions.",
+};
 
 const Recordings = () => {
   return (

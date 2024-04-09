@@ -1,4 +1,11 @@
 import CallList from "@/components/CallList";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Muchat - Previous",
+  description:
+    "Meeting History - View a comprehensive list of your past video conferences, allowing you to easily revisit previous sessions.",
+};
 
 const Previous = () => {
   return (

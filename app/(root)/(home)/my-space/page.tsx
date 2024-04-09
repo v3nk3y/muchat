@@ -4,8 +4,15 @@ import { toast } from "@/components/ui/use-toast";
 import { useGetCallById } from "@/hooks/useGetCallById";
 import { useUser } from "@clerk/nextjs";
 import { useStreamVideoClient } from "@stream-io/video-react-sdk";
+import { Metadata } from "next";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Muchat - My Space",
+  description:
+    "Dedicated Space - Enjoy a dedicated virtual space for instant meetings, readily accessible for anyone with your meeting link.",
+};
 
 const Table = ({
   title,

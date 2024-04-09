@@ -1,4 +1,11 @@
 import CallList from "@/components/CallList";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Muchat - Upcoming",
+  description:
+    "Stay Organized - View all your upcoming video meetings in a clear and concise schedule, ensuring you never miss a call.",
+};
 
 const Upcoming = () => {
   return (
