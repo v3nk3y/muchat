@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import MeetingCard from "./MeetingCard";
 import Loader from "@/components/Loader";
+import { toast } from "./ui/use-toast";
 
 const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   // to figure the page based on router
@@ -44,6 +45,34 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
     }
   };
 
+  // Fetch the call recordings
+  useEffect(() => {
+    const fetchRecordings = async () => {
+      try {
+        // Get each call's recordings data
+        const callData = await Promise.all(
+          callRecordings?.map((meeting) => meeting.queryRecordings()) ?? []
+        );
+
+        //   Exstract each call recordings
+        const recordings = callData
+          .filter((call) => call.recordings.length > 0)
+          .flatMap((call) => call.recordings);
+        // using flatmap above to flatten the array of arrays and get all recoridngs
+
+        setRecordings(recordings);
+      } catch (error) {
+        // Sometimes stream throws error for too many request.. handle that error via toast
+        toast({ title: "Oops something went wrong! Please, Try again later." });
+      }
+    };
+
+    // if type is recordings then fetch the recordings
+    if (type === "recordings") {
+      fetchRecordings();
+    }
+  }, [type, callRecordings]);
+
   if (isLoading) return <Loader />;
   const calls = getCalls();
   const noCallsMessage = getNoCallsMessage();
@@ -64,6 +93,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
             }
             title={
               (meeting as Call).state?.custom?.description ||
+              // For fetcing recording filename as title
               (meeting as CallRecording).filename?.substring(0, 20) ||
               "No Description"
             }
