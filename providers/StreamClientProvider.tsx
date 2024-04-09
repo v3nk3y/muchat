@@ -2,10 +2,10 @@
 import { tokenProvider } from "@/actions/stream.actions";
 import { useUser } from "@clerk/nextjs";
 import { StreamVideo, StreamVideoClient } from "@stream-io/video-react-sdk";
-import { Loader } from "lucide-react";
+import Loader from "@/components/Loader";
 import { ReactNode, useEffect, useState } from "react";
 
-const apiKey = process.env.NEXT_PUBLIC_STREAM_API_KEY;
+const API_KEY = process.env.NEXT_PUBLIC_STREAM_API_KEY;
 
 const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
   // Define our video client
@@ -18,18 +18,18 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
     // IF no user exists then exit
     if (!isLoaded || !user) return;
     // IF apikey then throw error
-    if (!apiKey) throw new Error("Stream API key missing");
+    if (!API_KEY) throw new Error("Stream API key missing");
 
     // Create new stream video client
     const client = new StreamVideoClient({
-      apiKey,
+      apiKey: API_KEY,
       user: {
         id: user?.id, // user id from clerk
         name: user?.username || user?.id, // Incase no clerk username will use clerk user id
         image: user?.imageUrl, // Image from clerk
       },
       // For verify user
-      tokenProvider: tokenProvider,
+      tokenProvider,
     });
 
     setVideoClient(client);

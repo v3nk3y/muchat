@@ -3,6 +3,9 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "@stream-io/video-react-sdk/dist/css/styles.css";
+// ideally, Stream Video theme should be imported before your own styles
+// as this would make it easier for you to override certain video-theme rules
 
 const inter = Inter({ subsets: ["latin"] });
 

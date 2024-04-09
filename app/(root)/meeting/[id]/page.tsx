@@ -1,12 +1,14 @@
 "use client";
 import MeetingSetupScreen from "@/components/MeetingSetupScreen";
-import MeetingRoomScreen from "@/components/ui/MeetingRoomScreen";
+import MeetingRoomScreen from "@/components/MeetingRoomScreen";
 import { useGetCallById } from "@/hooks/useGetCallById";
 import { useUser } from "@clerk/nextjs";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 
-const Meeting = ({ params: { id } }: { params: { id: string } }) => {
+const Meeting = () => {
+  const { id } = useParams();
   const { user, isLoaded } = useUser();
   const [isSetupComplete, setIsSetupComplete] = useState(false);
 
@@ -23,8 +25,9 @@ const Meeting = ({ params: { id } }: { params: { id: string } }) => {
         Call Not Found
       </p>
     );
+
   return (
-    <main className="text-white h-screen w-full">
+    <main className="h-screen w-full">
       <StreamCall call={call}>
         <StreamTheme>
           {!isSetupComplete ? (

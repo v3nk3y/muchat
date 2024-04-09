@@ -169,4 +169,13 @@
 
 /* sign in sign up form inoput bg */
 
+
+/* for Stream video */
+.show-block {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  animation: show 0.7s forwards linear;
+}
+
 /* ==== clerk class styles custom override ===== */
