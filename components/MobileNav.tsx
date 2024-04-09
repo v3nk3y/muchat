@@ -19,7 +19,6 @@ const MobileNav = () => {
     <section className="w-full max-w-[264px]">
       <Sheet>
         <SheetTrigger asChild>
-          {/* #TODO: Until we get the image hamburger menu */}
           <span className="cursor-pointer sm:hidden">
             <Image
               src="/icons/three-dots.svg"
@@ -47,11 +46,11 @@ const MobileNav = () => {
                     pathname === link.route ||
                     pathname.startsWith(`${link.route}/`);
                   return (
-                    <SheetClose asChild key={link.route}>
+                    <SheetClose asChild key={link.route} color="white">
                       <Link
                         href={link.route}
                         className={cn(
-                          "flex gap-4 items-center w-full max-w-60 p-4 rounded-lg",
+                          "flex gap-4 items-center w-full max-w-60 p-4 rounded-lg hover:bg-slate-800",
                           { "bg-blue-700": isActive }
                         )}
                       >

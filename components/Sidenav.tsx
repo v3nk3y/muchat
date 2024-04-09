@@ -23,7 +23,7 @@ const Sidenav = () => {
               href={link.route}
               key={link.label}
               className={cn(
-                "flex gap-4 items-center justify-start p-4 rounded-lg",
+                "flex gap-4 items-center justify-start p-4 rounded-lg hover:bg-slate-800",
                 { "bg-blue-700": isActive }
               )}
             >
