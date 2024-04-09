@@ -9,6 +9,7 @@ import DatePicker from "react-datepicker";
 import HomeCard from "./HomeCard";
 import MeetingModal from "./MeetingModal";
 import { Textarea } from "./ui/textarea";
+import { Input } from "@/components/ui/input";
 
 const MeetingTypeCategory = () => {
   const [meetingState, setMeetingState] = useState<
@@ -171,6 +172,8 @@ const MeetingTypeCategory = () => {
           buttonText="Copy Meeting Link"
         />
       )}
+
+      {/* Instant new meeting modal */}
       <MeetingModal
         isOpen={meetingState === "instantMeeting"}
         onClose={() => setMeetingState(undefined)}
@@ -180,6 +183,26 @@ const MeetingTypeCategory = () => {
         buttonIcon=""
         handleClick={createMeeting}
       />
+
+      {/* Join meeting modal via invitation link*/}
+      <MeetingModal
+        isOpen={meetingState === "joinMeeting"}
+        onClose={() => setMeetingState(undefined)}
+        title="Enter meeting link here"
+        className="text-center"
+        buttonText="Join Meeting"
+        handleClick={() => router.push(values.meetingLink)}
+      >
+        <Input
+          placeholder="Meeting Link"
+          className="bg-slate-700 border-none 
+            focus-visible:ring-slate-600 
+            focus-visible:ring-offset-0"
+          onChange={(e) =>
+            setValues({ ...values, meetingLink: e.target.value })
+          }
+        />
+      </MeetingModal>
     </section>
   );
 };

@@ -15,7 +15,7 @@ const Home = () => {
       <div className="h-[300px] w-full rounded-[20px] bg-slate-900 bg-cover">
         <div className="flex flex-col h-full justify-between max-md:px-5 max-md:py-8 sm:p-11">
           <h2 className="backdrop-blur-md max-w-[270px] rounded py-2 text-base font-normal">
-            Upcoming Meeting @ 12:30PM
+            Grab your coffee ☕️
           </h2>
           <div className="flex flex-col gap-2">
             <h1 className="text-2xl font-extrabold lg:text-4xl">{time}</h1>
