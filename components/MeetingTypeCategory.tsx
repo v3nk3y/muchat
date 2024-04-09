@@ -93,44 +93,44 @@ const MeetingTypeCategory = () => {
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
       <HomeCard
         title="New Meeting"
-        description="Lets catch up right now"
+        description="Lets Catch Up Now"
         image="/icons/add-meeting.svg"
         handleClick={() => setMeetingState("instantMeeting")}
-        className="bg-slate-800"
+        className="bg-slate-900"
       />
       <HomeCard
         title="Schedule Meeting"
-        description="Plan your chit chat"
+        description="Plan Your Chit Chat"
         image="/icons/schedule.svg"
         handleClick={() => setMeetingState("scheduleMeeting")}
-        className="bg-slate-800"
+        className="bg-slate-900"
       />
       <HomeCard
         title="Join Meeting"
-        description="Using Invitation link"
+        description="Using Invitation Link"
         image="/icons/join-meeting.svg"
         handleClick={() => setMeetingState("joinMeeting")}
-        className="bg-slate-800"
+        className="bg-slate-900"
       />
       <HomeCard
         title="View Recordings"
-        description="Check out your recordings"
+        description="Check Out Your Recordings"
         image="/icons/recordings.svg"
         handleClick={() => router.push("/recordings")}
-        className="bg-slate-800"
+        className="bg-slate-900"
       />
       {/* If call details doesnt't exist then open a Create meeting modal */}
       {!callDetails ? (
         <MeetingModal
           isOpen={meetingState === "scheduleMeeting"}
           onClose={() => setMeetingState(undefined)}
-          title="Create a new Meeting"
+          title="Create A New Meeting"
           className="text-center"
           handleClick={createMeeting}
         >
           <div className="felx flex-col w-full gap-3">
             <label className="text-base text-normal leading-5 text-slate-200">
-              Add a description
+              Add Description
             </label>
             <Textarea
               className="bg-slate-700 border-none focus-visible:ring-slate-600 focus-visible:ring-offset-0 mt-2"
@@ -141,7 +141,7 @@ const MeetingTypeCategory = () => {
           </div>
           <div className="flex flex-col w-full gap-3">
             <label className="text-base text-normal leading-5 text-slate-200">
-              Select Date and Time
+              Select Date & Time
             </label>
             <DatePicker
               className="rounded w-full bg-slate-700 p-2 focus:outline-none"
@@ -176,9 +176,9 @@ const MeetingTypeCategory = () => {
       <MeetingModal
         isOpen={meetingState === "instantMeeting"}
         onClose={() => setMeetingState(undefined)}
-        title="Let's Catch Up Right Now!"
+        title="New Meeting"
         className="text-center"
-        buttonText="Start Meeting"
+        buttonText="Start Meeting Now"
         handleClick={createMeeting}
       />
 
@@ -186,7 +186,7 @@ const MeetingTypeCategory = () => {
       <MeetingModal
         isOpen={meetingState === "joinMeeting"}
         onClose={() => setMeetingState(undefined)}
-        title="Enter meeting link here"
+        title="Enter Meeting Link Here"
         className="text-center"
         buttonText="Join Meeting"
         handleClick={() => router.push(values.meetingLink)}

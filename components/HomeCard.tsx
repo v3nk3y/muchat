@@ -18,7 +18,7 @@ const HomeCard = ({
   return (
     <div
       className={cn(
-        "bg-slate-900 px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-2xl cursor-pointer",
+        "bg-slate-900 px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-2xl cursor-pointer hover:bg-slate-800",
         className
       )}
       onClick={handleClick}
@@ -33,8 +33,8 @@ const HomeCard = ({
         />
       </div>
       <div>
-        <h1 className="text-2xl font-bold">{title}</h1>
-        <p className="text-lg font-normal">{description}</p>
+        <h1 className="text-xl font-bold mb-1">{title}</h1>
+        <p className="text-sm font-bold">{description}</p>
       </div>
     </div>
   );
