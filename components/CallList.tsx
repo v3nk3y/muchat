@@ -83,7 +83,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
         // If calls exists then show th list of meeting card calls
         calls.map((meeting: Call | CallRecording) => (
           <MeetingCard
-            key={(meeting as Call).id}
+            key={(meeting as Call).id || (meeting as CallRecording).filename}
             icon={
               type === "ended"
                 ? "/icons/previous.svg"
