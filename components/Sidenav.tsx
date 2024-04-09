@@ -1,6 +1,7 @@
 "use client";
 import { sidenavLinks } from "@/constants";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -26,8 +27,13 @@ const Sidenav = () => {
                 { "bg-blue-700": isActive }
               )}
             >
-              {/* #TODO: Using this until we figure out the images with icons */}
-              <span>{link.tempIcon}</span>
+              <Image
+                src={link.imgUrl}
+                alt="nav icon"
+                width={40}
+                height={40}
+                className="w-auto h-auto"
+              />
               <p className="text-lg font-semibold max-lg:hidden">
                 {link.label}
               </p>

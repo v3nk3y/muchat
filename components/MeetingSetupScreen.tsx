@@ -43,7 +43,6 @@ const MeetingSetupScreen = ({
           />
           Join with mic and camera off
         </label>
-        {/* #TODO: check why the deviceSettings is not working properly */}
         <DeviceSettings />
       </div>
       <Button

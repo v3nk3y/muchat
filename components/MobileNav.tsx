@@ -9,6 +9,8 @@ import { sidenavLinks } from "@/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import link from "next/link";
 
 const MobileNav = () => {
   // Get current pathname
@@ -18,7 +20,15 @@ const MobileNav = () => {
       <Sheet>
         <SheetTrigger asChild>
           {/* #TODO: Until we get the image hamburger menu */}
-          <span className="cursor-pointer sm:hidden">📚</span>
+          <span className="cursor-pointer sm:hidden">
+            <Image
+              src="/icons/three-dots.svg"
+              alt="nav icon"
+              width={40}
+              height={40}
+              className="w-auto h-auto"
+            />
+          </span>
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-gray-900">
           <Link href="/" className="flex items-center gap-1">
@@ -45,8 +55,13 @@ const MobileNav = () => {
                           { "bg-blue-700": isActive }
                         )}
                       >
-                        {/* #TODO: Using this until we figure out the images with icons */}
-                        <span>{link.tempIcon}</span>
+                        <Image
+                          src={link.imgUrl}
+                          alt="mobile nav icon"
+                          width={40}
+                          height={40}
+                          className="w-auto h-auto"
+                        />
                         <p className="font-semibold">{link.label}</p>
                       </Link>
                     </SheetClose>

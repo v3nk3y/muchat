@@ -1,6 +1,7 @@
 "use client";
-import MeetingSetupScreen from "@/components/MeetingSetupScreen";
+import Loader from "@/components/Loader";
 import MeetingRoomScreen from "@/components/MeetingRoomScreen";
+import MeetingSetupScreen from "@/components/MeetingSetupScreen";
 import { useGetCallById } from "@/hooks/useGetCallById";
 import { useUser } from "@clerk/nextjs";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
@@ -16,8 +17,7 @@ const Meeting = () => {
   const { call, isCallLoading } = useGetCallById(id);
 
   // If user not loaded or call loading then show loader
-  if (!isLoaded || isCallLoading)
-    return <div className="text-white">Loading...</div>;
+  if (!isLoaded || isCallLoading) return <Loader />;
 
   if (!call)
     return (
