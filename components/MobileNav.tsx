@@ -42,7 +42,7 @@ const MobileNav = () => {
                         href={link.route}
                         className={cn(
                           "flex gap-4 items-center w-full max-w-60 p-4 rounded-lg",
-                          { "bg-blue-500": isActive }
+                          { "bg-blue-700": isActive }
                         )}
                       >
                         {/* #TODO: Using this until we figure out the images with icons */}

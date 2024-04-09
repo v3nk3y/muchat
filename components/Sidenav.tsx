@@ -23,7 +23,7 @@ const Sidenav = () => {
               key={link.label}
               className={cn(
                 "flex gap-4 items-center justify-start p-4 rounded-lg",
-                { "bg-blue-500": isActive }
+                { "bg-blue-700": isActive }
               )}
             >
               {/* #TODO: Using this until we figure out the images with icons */}
