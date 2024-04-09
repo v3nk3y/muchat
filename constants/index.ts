@@ -30,3 +30,11 @@ export const sidenavLinks = [
     tempIcon: "🚀",
   },
 ];
+
+export const avatarImages = [
+  "/images/avatar-1.png",
+  "/images/avatar-1.png",
+  "/images/avatar-1.png",
+  "/images/avatar-1.png",
+  "/images/avatar-1.png",
+];
