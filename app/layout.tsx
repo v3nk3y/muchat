@@ -25,10 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <ClerkProvider
         appearance={{
-          // layout: {
-          //   logoImageUrl: "#TODO Placehollder For APP Logo Icon (muchat)",
-          //   socialButtonsVariant: "iconButton",
-          // },
+          layout: {
+            logoImageUrl: "icons/muchat-logo1.svg",
+            socialButtonsVariant: "iconButton",
+          },
           variables: {
             colorText: "#fff",
             colorPrimary: "#3b82f6",
@@ -38,6 +38,7 @@ export default function RootLayout({
         }}
       >
         <body className={`${inter.className} bg-gray-950`}>
+          <link rel="icon" href="/icons/muchat-logo1.svg" />
           {children}
           <Toaster />
         </body>

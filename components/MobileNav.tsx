@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import link from "next/link";
 
 const MobileNav = () => {
   // Get current pathname
@@ -31,11 +30,15 @@ const MobileNav = () => {
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-gray-900">
           <Link href="/" className="flex items-center gap-1">
-            {/* #TODO: Temporary until we figure out the Icon here */}
-            <span>💬</span>
-            <p className="text-[24px] font-extrabold text-white max-sm:hidden">
+            <Image
+              src="/icons/muchat-logo1.svg"
+              alt="logo"
+              width={100}
+              height={40}
+            />
+            {/* <p className="text-[24px] font-extrabold text-white max-sm:hidden">
               Muchat
-            </p>
+            </p> */}
           </Link>
           <div className="flex flex-col justify-between h-[calc(100vh-72px)] overflow-y-auto">
             <SheetClose asChild>
