@@ -2,7 +2,7 @@ export const sidenavLinks = [
   {
     label: "Home",
     route: "/",
-    imgUrl: "/icons/home.svg",
+    imgUrl: "/icons/home-icon.svg",
     tempIcon: "🏠",
   },
   {
@@ -20,7 +20,7 @@ export const sidenavLinks = [
   {
     label: "Recordings",
     route: "/recordings",
-    imgUrl: "/icons/video.svg",
+    imgUrl: "/icons/video-icon.svg",
     tempIcon: "🎧",
   },
   {
